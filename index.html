@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Atividade IMC</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+            *{
+                border: 0;
+                margin: 0;
+                padding: 0;
+            }
+
+            input{
+                text-align: center;
+                border-radius: 10px;
+                border-color: none;
+                padding: 20px;
+                font-size: 15px;
+                border-color: none;
+                outline: none;
+            }
+
+            form, body{     
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                padding-top: 7em;
+            }
+
+            body{
+                background-image: linear-gradient(to left,#dad3bf,#ccc5b9,#b2967d,#686663); 
+                background-size: 500% 100%;
+                animation: degrade-animado 5.5s infinite alternate;
+            }
+
+            @keyframes degrade-animado {
+                0%{
+                    background-position-x: 0%;
+                }
+            
+                50%{
+                    background-position-x: 50% ;
+                }
+            
+                100%{
+                    background-position-x: 100%;
+                }
+            }
+         </style>
+    </head>
+    <body>
+        
+        <form>
+            <h1>Calculadora de IMC</h1><br>
+            <input type="text" placeholder="Digite sua altura" id="altura"><br>
+            <input type="text" placeholder="Digite seu peso" id="peso"><br>  
+            <input type="button" value="Calcular" onclick="IMCcalc()"><br>
+            <input type="reset" name="Limpar"><br>
+            <input type="text" id="result" value="Seu IMC é..... "><br>
+        </form>
+
+        <script>
+            function IMCcalc(){ //função que realiza o calculo do imc
+                var peso = document.getElementById('peso').value; //variavel para pegar os dados e armazenar na variavel de acordo com o que o usuario digitar
+                var altura = document.getElementById('altura').value; //variavel para pegar os dados e armazenar na variavel de acordo com o que o usuario digitar
+
+                var imc = peso/(altura*altura); //formula do IMC
+                document.getElementById('result').value = 'Seu IMC é: ' + imc.toFixed(2); //imprimindo o resultado 
+                console.log(imc);//console para realizar testes    
+            }
+        </script>
+    </body>
+</html>
